@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/">
+            <img src="favicon.ico" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li *ngIf="!isLogin()" class="nav-item">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+                <li *ngIf="isLogin()" class="nav-item">
+                    <a class="nav-link" routerLink="/article-creation">Create Article</a>
+                </li>
+                <li *ngIf="isLogin()" class="nav-item">
+                    <a class="nav-link" routerLink="/">{{ getUserName()}}</a>
+                </li>
+                <li *ngIf="isLogin()" class="nav-item" (click)="logout()">
+                    <a class="nav-link">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- <div class='header d-flex flex-column flex-md-row align-items-center pt-3 px-md-4 pb-md-3'>
+    <a routerLink='/' class='logo mr-md-auto'>
+        <h1>RW</h1>
+    </a>
+    <nav class='my-2 my-md-0 mr-md-3'>
+        <a class='nav-btn' routerLink='/'>Home</a>
+
+        <span *ngIf='isLogin(); then sessionButtons else nonSessionButtons'>
+        </span>
+
+        <ng-template #nonSessionButtons>
+            <a class='nav-btn' routerLink='/login'>Sign In</a>
+            <a class='nav-btn' routerLink='/register'>Sign Up</a>
+        </ng-template>
+
+        <ng-template #sessionButtons>
+            <a class='nav-btn' routerLink='/editor'>New Article</a>
+            <a class='nav-btn' routerLink='/settings'>Settings</a>
+            <a class='nav-btn' routerLink='/profile/{{getUsername()}}'>{{getUsername()}}</a>
+        </ng-template>
+
+    </nav>
+</div> -->

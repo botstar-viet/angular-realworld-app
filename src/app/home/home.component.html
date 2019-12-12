@@ -1,0 +1,30 @@
+<div class="home-page">
+    <div class="banner">
+        <div class="container col-md-2">
+            <h1 class="h1">Realworld</h1>
+        </div>
+    </div>
+
+    <div class="container page">
+        <div class="row">
+            <div class="feed col-sm-9 offset-md-2 px-0">
+                <div class="feed-toggle md-0 pd-5">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <button #yourfeed class="btn btn-secondary" (click)="getYourFeed()">
+                            Your Feed
+                        </button>
+                        <button #globalfeed class="btn btn-secondary active" (click)="getGlobalFeed()">
+                            Global Feed
+                        </button>
+                        <div class="col-md"></div>
+                        <app-article-search></app-article-search>
+                        <div class="col-md"></div>
+                        <button class="btn btn-secondary" (click)="sortByTitle()">Sort</button>
+                    </div>
+                </div>
+                <hr />
+                <app-article *ngFor="let article of articles" [article]="article"></app-article>
+            </div>
+        </div>
+    </div>
+</div>
