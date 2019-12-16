@@ -1,12 +1,8 @@
 <div class="text-center">
-
-    <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm)" class="form-signin p-1 m-auto">
-
-        <input class="form-control my-2 " style="width: 30%" type="text" placeholder="Title" name="title" ngModel required #title="ngModel">
-        <input class="form-control my-2 " style="width: 30%" type="text" placeholder="Description" name="description" ngModel required #description="ngModel">
-        <input class="form-control my-2 " style="width: 30% ; height: 30%; " type="text" placeholder="Body" name="body" ngModel required #body="ngModel">
-        <button class="btn btn-success" type="submit">Sign In</button>
-
+    <form class="form-signin p-1 m-auto">
+        <input #title class="form-control my-2 " style="width: 30%" type="text" placeholder="Title">
+        <input #description class="form-control my-2 " style="width: 30%" type="text" placeholder="Description">
+        <input #body class="form-control my-2 " style="width: 30% ; height: 30%; " type="text" placeholder="Body">
+        <button class="btn btn-success" (click)="save(title.value,description.value,body.value)">Post</button>
     </form>
-
 </div>

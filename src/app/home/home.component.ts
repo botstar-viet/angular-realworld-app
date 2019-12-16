@@ -55,10 +55,10 @@ export class HomeComponent implements OnInit {
       const titlePre = pre.title.toLocaleLowerCase();
       const titleNext = next.title.toLocaleLowerCase();
       if (titlePre > titleNext) {
-        return -1;
+        return 1;
       }
       if (titlePre < titleNext) {
-        return 1;
+        return -1;
       }
       return 0;
     })

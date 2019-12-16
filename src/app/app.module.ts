@@ -10,7 +10,6 @@ import { ArticleComponent } from './articles/article/article.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ArticleListComponent } from './articles/article-list/article-list.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { ArticleEditorComponent } from './articles/article-editor/article-editor.component';
 import { ArticleCreationComponent } from './articles/article-creation/article-creation.component';
@@ -24,7 +23,6 @@ import { ArticleSearchComponent } from './article-search/article-search.componen
     LoginComponent,
     RegisComponent,
     ArticleComponent, 
-    ArticleListComponent,
     ArticleDetailComponent,
     ArticleEditorComponent,
     ArticleCreationComponent,

@@ -24,7 +24,6 @@ export class ArticleDetailComponent implements OnInit {
 
   getArticle() {
     const id = this.activedRoute.snapshot.params['id'] as string;
-    console.log({ id });
     if (id && id.length > 0) {
       this.articleService.getArticleById(id).subscribe(art => {
         this.article = art;

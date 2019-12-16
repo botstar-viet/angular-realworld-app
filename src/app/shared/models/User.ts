@@ -5,5 +5,4 @@ export class User {
     password: string;
     articles: [{ type: string }];
     favorites: [{ type: string }];
-    token : Promise<string>;
 }

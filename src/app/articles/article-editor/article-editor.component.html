@@ -1,9 +1,9 @@
 <div *ngIf="article&&validate()">
     <div>
-        <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm)" class="form-signin p-1 m-auto">
-            <label>Title : </label><input class="form-control my-2 " style="width: 30%" type="text" placeholder="{{article.title}}" name="title" ngModel required #title="ngModel">
-            <label>Description : </label><input class="form-control my-2 " style="width: 30%" type="text" placeholder="{{article.description}}" name="description" ngModel #description="ngModel" value="{{article.description}}">
-            <label>Body : </label><input class="form-control my-2 " style="width: 30% ; height: 30%; " type="text" placeholder="{{article.body}}" name="body" ngModel #body="ngModel">
+        <form class="form-signin p-1 m-auto">
+            <label>Title : </label><input class="form-control my-2 " style="width: 30%" type="text" [value]="article.title" [(ngModel)]="article.title" name="title" required>
+            <label>Description : </label><input class="form-control my-2 " style="width: 30%" type="text" [value]="article.description" [(ngModel)]="article.description" name="description">
+            <label>Body : </label><input class="form-control my-2 " style="width: 30% ; height: 30%; " type="text" [value]="article.body" [(ngModel)]="article.body" name="body">
             <button class="btn btn-success" (click)="update()">Update</button>
             <button class="btn btn-danger" type="reset">Reset</button>
         </form>

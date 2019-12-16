@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Article } from 'src/app/shared/models/Article';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from 'src/app/shared/services/article/article.service';
@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ArticleEditorComponent implements OnInit {
 
-  private article: Article;
+  @Input() article: Article;
 
   constructor(
     private activedRoute: ActivatedRoute,
@@ -31,13 +31,6 @@ export class ArticleEditorComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
-    let currentArticle = form.value;
-    const _id = this.article._id;
-    Object.assign(currentArticle, { _id });
-    this.update(currentArticle);
-  }
-
   validate() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser._id === this.article.author) {
@@ -46,9 +39,10 @@ export class ArticleEditorComponent implements OnInit {
     return false;
   }
 
-  update(currentArticle: Article) {
-    this.articleService.updateArticle(currentArticle)
-      .subscribe(rs => this.router.navigate([`/article-detail/${rs._id}`]));
+  update() {
+    // this.articleService.updateArticle(article)
+    //   .subscribe(rs => this.router.navigate([`/article-detail/${rs._id}`]));
+    console.log(this.article);
   }
 
 }

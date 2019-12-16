@@ -26,19 +26,23 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     const url = this.uris + `/auth/login`;
+    console.log({username,password});
     return this.http.post<any>(url, { username, password })
-      .pipe(map(user => {
+      .pipe(map(({ user, token }) => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('currentToken', JSON.stringify(token));
+        console.log(token)
+        console.log(user);
         this.currentUserSubject.next(user);
         return user;
       }));
   }
 
   logout() {
-    // localStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     localStorage.clear();
   }
-  
+
 }

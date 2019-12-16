@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   private login(username, password) {
-    this.authenService.login(username, password).subscribe(rs => {
+    this.authenService.login(username, password)
+    .subscribe(rs => {
       this.router.navigate(['/']);
     });
   }
